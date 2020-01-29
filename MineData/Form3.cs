@@ -46,6 +46,18 @@ namespace MineData
 
             t = query1.First();
 
+            //var query = from Animals in collection.AsQueryable<Animal>()
+            //             where Animals.properties
+            //             select Animals;
+
+            //foreach(Animal a in query)
+            //{
+            //    MessageBox.Show(a.name);
+            //}
+
+
+
+            list.Items.Clear();
             foreach(MongoDBRef tmpRef in t.data)
             {
                 Animal tmp = database.FetchDBRefAs<Animal>(tmpRef);
@@ -83,6 +95,61 @@ namespace MineData
 
             //MessageBox.Show(list.SelectedItem.ToString());
             MessageBox.Show(props, animal.name + " properties",MessageBoxButtons.OK);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var connectionString = "mongodb://localhost/?safe=true";
+            var server = MongoServer.Create(connectionString);
+            var database = server.GetDatabase("Data");
+
+            var collection = database.GetCollection<Animal>("Animals");
+            var topicCollection = database.GetCollection<Topic>("Topics");
+
+            MongoDBRef animalRef = t.data[list.SelectedIndex];
+            Animal animal = database.FetchDBRefAs<Animal>(animalRef);
+
+
+            t.data.RemoveAt(list.SelectedIndex);
+            topicCollection.Save(t);
+            collection.Remove(Query.EQ("_id", animal.Id));
+            showData();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            var connectionString = "mongodb://localhost/?safe=true";
+            var server = MongoServer.Create(connectionString);
+            var database = server.GetDatabase("Data");
+
+            var collection = database.GetCollection<Animal>("Animals");
+            var topicCollection = database.GetCollection<Topic>("Topics");
+
+            int dataCount = 9999999;
+
+            List<IMongoQuery> queries = new List<IMongoQuery>();
+            queries.Add(Query.EQ("topic.$id", t.Id));
+
+            if (textCount.TextLength > 0)
+                dataCount = Int32.Parse(textCount.Text);
+
+            if(textNoPops.TextLength>0)
+                queries.Add(Query.Size("properties", 1));
+
+            if(textPropName.TextLength>0)
+                queries.Add(Query.EQ("properties.name", "mrav"));
+
+            //queries.Add(Query.ElemMatch("properties", Query.EQ("Name","mrav")));
+
+            foreach (Animal a in collection.Find(Query.And(queries)).SetLimit(dataCount))
+            {
+                MessageBox.Show(a.name);
+            }
         }
     }
 }

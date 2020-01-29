@@ -33,11 +33,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.textName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTime = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
             this.listProp = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboTopic = new System.Windows.Forms.ComboBox();
@@ -95,6 +95,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Property";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(419, 49);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 29);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Add Property";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // textName
             // 
             this.textName.Location = new System.Drawing.Point(26, 150);
@@ -127,23 +137,13 @@
             this.dateTime.Size = new System.Drawing.Size(171, 22);
             this.dateTime.TabIndex = 10;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(419, 49);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 29);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Add Property";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // listProp
             // 
             this.listProp.FormattingEnabled = true;
             this.listProp.ItemHeight = 16;
             this.listProp.Location = new System.Drawing.Point(26, 339);
             this.listProp.Name = "listProp";
-            this.listProp.Size = new System.Drawing.Size(529, 84);
+            this.listProp.Size = new System.Drawing.Size(372, 132);
             this.listProp.TabIndex = 12;
             this.listProp.SelectedIndexChanged += new System.EventHandler(this.listProp_SelectedIndexChanged);
             // 
@@ -185,7 +185,7 @@
             // 
             // btnViewAll
             // 
-            this.btnViewAll.Location = new System.Drawing.Point(677, 12);
+            this.btnViewAll.Location = new System.Drawing.Point(576, 14);
             this.btnViewAll.Name = "btnViewAll";
             this.btnViewAll.Size = new System.Drawing.Size(111, 29);
             this.btnViewAll.TabIndex = 17;
@@ -198,7 +198,7 @@
             this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
             this.btnAdd.BackgroundImage = global::MineData.Properties.Resources.check;
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdd.Location = new System.Drawing.Point(711, 361);
+            this.btnAdd.Location = new System.Drawing.Point(607, 391);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(0);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(80, 80);
@@ -220,7 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(706, 489);
             this.Controls.Add(this.btnDeleteTopic);
             this.Controls.Add(this.btnViewAll);
             this.Controls.Add(this.btnNewTopic);
@@ -235,7 +235,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAdd);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "MineData";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
