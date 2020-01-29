@@ -141,10 +141,27 @@ namespace MineData
             if(textNoPops.TextLength>0)
                 queries.Add(Query.Size("properties", 1));
 
-            if(textPropName.TextLength>0)
-                queries.Add(Query.EQ("properties.name", "mrav"));
 
-            //queries.Add(Query.ElemMatch("properties", Query.EQ("Name","mrav")));
+            //var jsonQuery = "{ properties : [ {\"Name\" : \"aa\", \"Value\" : \"12\" }]}";
+            //BsonDocument doc = MongoDB.Bson.Serialization
+            //                   .BsonSerializer.Deserialize<BsonDocument>(jsonQuery);
+
+            //queries.Add(new QueryComplete(doc));
+
+            if (textPropName.TextLength > 0 && textPropValue.TextLength > 0)
+            {
+                var jsonQuery = "{ properties : [ {\"Name\" : \"" + textPropName.Text + "\", \"Value\" : \"" +
+                    textPropValue.Text + "\" }]}";
+                //var jsonQuery = "{ properties : [ {\"Name\" : \"aa\", \"Value\" : \"12\" }]}";
+                BsonDocument doc = MongoDB.Bson.Serialization
+                                   .BsonSerializer.Deserialize<BsonDocument>(jsonQuery);
+
+                queries.Add(new QueryComplete(doc));
+
+            }
+
+            //var q1= Query.And(queries);
+            //var finalQuery = Query<Animal>.ElemMatch(p => p., builder => q1);
 
             foreach (Animal a in collection.Find(Query.And(queries)).SetLimit(dataCount))
             {
