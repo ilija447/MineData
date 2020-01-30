@@ -15,18 +15,33 @@ using MongoDB.Driver.Builders;
 
 namespace MineData
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialSkin.Controls.MaterialForm
     {
         private List<Property> tmpProps;
+
+        private Form logForm;
         public Form1()
         {
             InitializeComponent();
 
             tmpProps = new List<Property>();
 
+            
 
             getTopics();
         }
+
+        public Form1(Form f)
+        {
+            InitializeComponent();
+
+            tmpProps = new List<Property>();
+
+            logForm = f;
+
+            getTopics();
+        }
+
 
         public void getTopics() {
             var connectionString = "mongodb://localhost/?safe=true";
@@ -93,7 +108,7 @@ namespace MineData
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
 
 
             if (textPropName.Text.Length<1 || textPropValue.Text.Length < 1)
@@ -115,7 +130,7 @@ namespace MineData
 
             tmpProps.Add(new Property { Name = textPropName.Text, Value = textPropValue.Text });
 
-
+            
             listProp.Items.Add((listProp.Items.Count+1)+". "+textPropName.Text +" = "+ textPropValue.Text);
             textPropValue.Clear();
             textPropName.Clear();
@@ -172,6 +187,22 @@ namespace MineData
         private void listProp_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void materialDivider1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            logForm.Show();
         }
     }
 }

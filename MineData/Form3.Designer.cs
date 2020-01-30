@@ -29,177 +29,259 @@
         private void InitializeComponent()
         {
             this.list = new System.Windows.Forms.ListBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textCount = new System.Windows.Forms.TextBox();
-            this.textNoPops = new System.Windows.Forms.TextBox();
-            this.textPropName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textPropValue = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.textCount = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.textNoPops = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.textPropName = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.textPropValue = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
             // list
             // 
+            this.list.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.list.FormattingEnabled = true;
-            this.list.ItemHeight = 16;
-            this.list.Location = new System.Drawing.Point(12, 190);
+            this.list.ItemHeight = 20;
+            this.list.Location = new System.Drawing.Point(12, 364);
             this.list.Name = "list";
-            this.list.Size = new System.Drawing.Size(541, 388);
+            this.list.Size = new System.Drawing.Size(647, 284);
             this.list.TabIndex = 0;
             this.list.SelectedIndexChanged += new System.EventHandler(this.list_SelectedIndexChanged);
             this.list.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.list_MouseDoubleClick);
             // 
-            // btnDelete
+            // materialDivider1
             // 
-            this.btnDelete.Location = new System.Drawing.Point(12, 584);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(97, 32);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "Delete Selected";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.materialDivider1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(12, 99);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(647, 245);
+            this.materialDivider1.TabIndex = 3;
+            this.materialDivider1.Text = "materialDivider1";
             // 
-            // groupBox1
+            // materialLabel1
             // 
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textPropValue);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textPropName);
-            this.groupBox1.Controls.Add(this.textNoPops);
-            this.groupBox1.Controls.Add(this.textCount);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnExport);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(541, 161);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Export options";
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(21, 99);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(133, 24);
+            this.materialLabel1.TabIndex = 4;
+            this.materialLabel1.Text = "Export options";
+            this.materialLabel1.Click += new System.EventHandler(this.materialLabel1_Click);
             // 
-            // btnExport
+            // materialLabel2
             // 
-            this.btnExport.Location = new System.Drawing.Point(460, 121);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 34);
-            this.btnExport.TabIndex = 0;
-            this.btnExport.Text = "Export";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(22, 144);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(59, 24);
+            this.materialLabel2.TabIndex = 5;
+            this.materialLabel2.Text = "Count";
             // 
-            // label1
+            // materialLabel3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Count";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(233, 147);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(119, 48);
+            this.materialLabel3.TabIndex = 6;
+            this.materialLabel3.Text = "Number \r\nof properties\r\n";
+            this.materialLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // materialLabel4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(144, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 34);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Number \r\nof properties";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(169, 272);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(61, 24);
+            this.materialLabel4.TabIndex = 7;
+            this.materialLabel4.Text = "Name";
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(337, 272);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(57, 24);
+            this.materialLabel5.TabIndex = 8;
+            this.materialLabel5.Text = "Value";
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel6.Location = new System.Drawing.Point(21, 303);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(124, 24);
+            this.materialLabel6.TabIndex = 9;
+            this.materialLabel6.Text = "With Property";
             // 
             // textCount
             // 
-            this.textCount.Location = new System.Drawing.Point(19, 61);
+            this.textCount.Depth = 0;
+            this.textCount.Hint = "";
+            this.textCount.Location = new System.Drawing.Point(25, 198);
+            this.textCount.MouseState = MaterialSkin.MouseState.HOVER;
             this.textCount.Name = "textCount";
-            this.textCount.Size = new System.Drawing.Size(100, 22);
-            this.textCount.TabIndex = 4;
+            this.textCount.PasswordChar = '\0';
+            this.textCount.SelectedText = "";
+            this.textCount.SelectionLength = 0;
+            this.textCount.SelectionStart = 0;
+            this.textCount.Size = new System.Drawing.Size(134, 28);
+            this.textCount.TabIndex = 10;
+            this.textCount.UseSystemPasswordChar = false;
             // 
             // textNoPops
             // 
-            this.textNoPops.Location = new System.Drawing.Point(147, 61);
+            this.textNoPops.Depth = 0;
+            this.textNoPops.Hint = "";
+            this.textNoPops.Location = new System.Drawing.Point(237, 198);
+            this.textNoPops.MouseState = MaterialSkin.MouseState.HOVER;
             this.textNoPops.Name = "textNoPops";
-            this.textNoPops.Size = new System.Drawing.Size(100, 22);
-            this.textNoPops.TabIndex = 6;
+            this.textNoPops.PasswordChar = '\0';
+            this.textNoPops.SelectedText = "";
+            this.textNoPops.SelectionLength = 0;
+            this.textNoPops.SelectionStart = 0;
+            this.textNoPops.Size = new System.Drawing.Size(134, 28);
+            this.textNoPops.TabIndex = 11;
+            this.textNoPops.UseSystemPasswordChar = false;
             // 
             // textPropName
             // 
-            this.textPropName.Location = new System.Drawing.Point(147, 130);
+            this.textPropName.Depth = 0;
+            this.textPropName.Hint = "";
+            this.textPropName.Location = new System.Drawing.Point(164, 299);
+            this.textPropName.MouseState = MaterialSkin.MouseState.HOVER;
             this.textPropName.Name = "textPropName";
-            this.textPropName.Size = new System.Drawing.Size(100, 22);
-            this.textPropName.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 130);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "With property:";
+            this.textPropName.PasswordChar = '\0';
+            this.textPropName.SelectedText = "";
+            this.textPropName.SelectionLength = 0;
+            this.textPropName.SelectionStart = 0;
+            this.textPropName.Size = new System.Drawing.Size(134, 28);
+            this.textPropName.TabIndex = 12;
+            this.textPropName.UseSystemPasswordChar = false;
             // 
             // textPropValue
             // 
-            this.textPropValue.Location = new System.Drawing.Point(278, 130);
+            this.textPropValue.Depth = 0;
+            this.textPropValue.Hint = "";
+            this.textPropValue.Location = new System.Drawing.Point(341, 299);
+            this.textPropValue.MouseState = MaterialSkin.MouseState.HOVER;
             this.textPropValue.Name = "textPropValue";
-            this.textPropValue.Size = new System.Drawing.Size(100, 22);
-            this.textPropValue.TabIndex = 9;
+            this.textPropValue.PasswordChar = '\0';
+            this.textPropValue.SelectedText = "";
+            this.textPropValue.SelectionLength = 0;
+            this.textPropValue.SelectionStart = 0;
+            this.textPropValue.Size = new System.Drawing.Size(134, 28);
+            this.textPropValue.TabIndex = 13;
+            this.textPropValue.UseSystemPasswordChar = false;
             // 
-            // label5
+            // materialRaisedButton1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(144, 110);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 17);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Name";
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(544, 297);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(105, 39);
+            this.materialRaisedButton1.TabIndex = 14;
+            this.materialRaisedButton1.Text = "Export";
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // label6
+            // materialRaisedButton2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(275, 110);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 17);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Value";
+            this.materialRaisedButton2.Depth = 0;
+            this.materialRaisedButton2.Location = new System.Drawing.Point(12, 684);
+            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton2.Name = "materialRaisedButton2";
+            this.materialRaisedButton2.Primary = true;
+            this.materialRaisedButton2.Size = new System.Drawing.Size(166, 36);
+            this.materialRaisedButton2.TabIndex = 15;
+            this.materialRaisedButton2.Text = "Delete Selected";
+            this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.materialRaisedButton2.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 629);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnDelete);
+            this.ClientSize = new System.Drawing.Size(672, 734);
+            this.Controls.Add(this.materialRaisedButton2);
+            this.Controls.Add(this.materialRaisedButton1);
+            this.Controls.Add(this.textPropValue);
+            this.Controls.Add(this.textPropName);
+            this.Controls.Add(this.textNoPops);
+            this.Controls.Add(this.textCount);
+            this.Controls.Add(this.materialLabel6);
+            this.Controls.Add(this.materialLabel5);
+            this.Controls.Add(this.materialLabel4);
+            this.Controls.Add(this.materialLabel3);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.list);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Data";
             this.Load += new System.EventHandler(this.Form3_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ListBox list;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textPropValue;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textPropName;
-        private System.Windows.Forms.TextBox textNoPops;
-        private System.Windows.Forms.TextBox textCount;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private MaterialSkin.Controls.MaterialSingleLineTextField textCount;
+        private MaterialSkin.Controls.MaterialSingleLineTextField textNoPops;
+        private MaterialSkin.Controls.MaterialSingleLineTextField textPropName;
+        private MaterialSkin.Controls.MaterialSingleLineTextField textPropValue;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
     }
 }

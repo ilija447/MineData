@@ -28,46 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textTopicName = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textTopicName = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // textTopicName
             // 
-            this.textTopicName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textTopicName.Location = new System.Drawing.Point(12, 12);
+            this.textTopicName.Depth = 0;
+            this.textTopicName.Hint = "";
+            this.textTopicName.Location = new System.Drawing.Point(12, 149);
+            this.textTopicName.MouseState = MaterialSkin.MouseState.HOVER;
             this.textTopicName.Name = "textTopicName";
-            this.textTopicName.Size = new System.Drawing.Size(344, 30);
-            this.textTopicName.TabIndex = 0;
+            this.textTopicName.PasswordChar = '\0';
+            this.textTopicName.SelectedText = "";
+            this.textTopicName.SelectionLength = 0;
+            this.textTopicName.SelectionStart = 0;
+            this.textTopicName.Size = new System.Drawing.Size(346, 28);
+            this.textTopicName.TabIndex = 2;
+            this.textTopicName.UseSystemPasswordChar = false;
             // 
-            // button1
+            // materialRaisedButton1
             // 
-            this.button1.BackgroundImage = global::MineData.Properties.Resources.check;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(303, 57);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 55);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(242, 203);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(116, 46);
+            this.materialRaisedButton1.TabIndex = 3;
+            this.materialRaisedButton1.Text = "Add Topic";
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(12, 122);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(110, 24);
+            this.materialLabel1.TabIndex = 4;
+            this.materialLabel1.Text = "Topic name";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 124);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(370, 268);
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.textTopicName);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Topic";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textTopicName;
-        private System.Windows.Forms.Button button1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField textTopicName;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }

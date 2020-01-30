@@ -15,7 +15,7 @@ using MongoDB.Driver.Builders;
 
 namespace MineData
 {
-    public partial class Form3 : Form
+    public partial class Form3 : MaterialSkin.Controls.MaterialForm
     {
         private String topic;
         private Topic t;
@@ -141,17 +141,10 @@ namespace MineData
             if(textNoPops.TextLength>0)
                 queries.Add(Query.Size("properties", 1));
 
-
-            //var jsonQuery = "{ properties : [ {\"Name\" : \"aa\", \"Value\" : \"12\" }]}";
-            //BsonDocument doc = MongoDB.Bson.Serialization
-            //                   .BsonSerializer.Deserialize<BsonDocument>(jsonQuery);
-
-            //queries.Add(new QueryComplete(doc));
-
             if (textPropName.TextLength > 0 && textPropValue.TextLength > 0)
             {
-                var jsonQuery = "{ properties : [ {\"Name\" : \"" + textPropName.Text + "\", \"Value\" : \"" +
-                    textPropValue.Text + "\" }]}";
+                var jsonQuery = "{ properties : {\"Name\" : \"" + textPropName.Text + "\", \"Value\" : \"" +
+                    textPropValue.Text + "\" }}";
                 //var jsonQuery = "{ properties : [ {\"Name\" : \"aa\", \"Value\" : \"12\" }]}";
                 BsonDocument doc = MongoDB.Bson.Serialization
                                    .BsonSerializer.Deserialize<BsonDocument>(jsonQuery);
@@ -160,13 +153,15 @@ namespace MineData
 
             }
 
-            //var q1= Query.And(queries);
-            //var finalQuery = Query<Animal>.ElemMatch(p => p., builder => q1);
-
             foreach (Animal a in collection.Find(Query.And(queries)).SetLimit(dataCount))
             {
                 MessageBox.Show(a.name);
             }
+        }
+
+        private void materialLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

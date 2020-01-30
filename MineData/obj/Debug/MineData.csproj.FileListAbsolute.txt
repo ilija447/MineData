@@ -54,3 +54,6 @@ D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\obj\Debug\MineData.csproj.G
 D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\obj\Debug\MineData.csproj.CopyComplete
 D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\obj\Debug\MineData.exe
 D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\obj\Debug\MineData.pdb
+D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\bin\Debug\MaterialSkin.dll
+D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\obj\Debug\MineData.LoginForm.resources
+D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\obj\Debug\MineData.registerForm.resources

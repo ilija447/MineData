@@ -16,7 +16,7 @@ using MongoDB.Driver.Linq;
 
 namespace MineData
 {
-    public partial class Form2 : Form
+    public partial class Form2 : MaterialSkin.Controls.MaterialForm
     {
         Form1 parent;
         public Form2()
@@ -48,6 +48,11 @@ namespace MineData
 
             parent.getTopics();
             this.Close();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
