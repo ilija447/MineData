@@ -59,6 +59,7 @@
             this.list.Size = new System.Drawing.Size(647, 284);
             this.list.TabIndex = 1;
             this.list.MouseClick += new System.Windows.Forms.MouseEventHandler(this.list_MouseClick);
+            
             // 
             // materialDivider1
             // 
@@ -153,6 +154,8 @@
             // comboProp
             // 
             this.comboProp.BackColor = System.Drawing.Color.White;
+            this.comboProp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboProp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboProp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboProp.FormattingEnabled = true;
             this.comboProp.Location = new System.Drawing.Point(166, 565);
@@ -326,7 +329,7 @@
             this.Controls.Add(this.list);
             this.Name = "EditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EditFormcs";
+            this.Text = "Edit Data";
             this.ResumeLayout(false);
             this.PerformLayout();
 

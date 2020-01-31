@@ -15,8 +15,9 @@ namespace MineData
         public DateTime date { get; set; }
         public List<Property> properties { get; set; }
         public MongoDBRef topic { get; set; }
+        //public MongoDBRef university { get; set; }
 
-
+        
 
     }
 }

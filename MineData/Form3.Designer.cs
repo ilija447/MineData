@@ -53,6 +53,7 @@
             this.list.Size = new System.Drawing.Size(647, 284);
             this.list.TabIndex = 0;
             this.list.SelectedIndexChanged += new System.EventHandler(this.list_SelectedIndexChanged);
+            this.list.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.list_Format);
             this.list.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.list_MouseDoubleClick);
             // 
             // materialDivider1

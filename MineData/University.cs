@@ -9,14 +9,16 @@ using MongoDB.Driver;
 
 namespace MineData
 {
-    public class Topic
+    public class University
     {
         public ObjectId Id { get; set; }
-        public string name { get; set; }
-        //public List<MongoDBRef> data { get; set; }
+        public string Name { get; set; }
+        public List<MongoDBRef> generatedData { get; set; }
 
-        //public Topic() {
-        //    data = new List<MongoDBRef>();
-        //}
+        public University()
+        {
+            generatedData = new List<MongoDBRef>();
+        }
+
     }
 }

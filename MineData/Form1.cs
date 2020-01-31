@@ -20,6 +20,8 @@ namespace MineData
         private List<Property> tmpProps;
 
         private Form logForm;
+        private User logedUser;
+        private University university;
         public Form1()
         {
             InitializeComponent();
@@ -31,17 +33,29 @@ namespace MineData
             getTopics();
         }
 
-        public Form1(Form f)
+        public Form1(Form f, User u)
         {
             InitializeComponent();
 
             tmpProps = new List<Property>();
 
             logForm = f;
+            logedUser = u;
 
+            
+            getUniversity();
             getTopics();
+
+            this.Text += " - " + university.Name;
         }
 
+        private void getUniversity() {
+            var connectionString = "mongodb://localhost/?safe=true";
+            var server = MongoServer.Create(connectionString);
+            var database = server.GetDatabase("Data");
+
+            university= database.FetchDBRefAs<University>(logedUser.university);
+        }
 
         public void getTopics() {
             var connectionString = "mongodb://localhost/?safe=true";
@@ -70,15 +84,13 @@ namespace MineData
                 return;
             }
 
-
-
-
             var connectionString = "mongodb://localhost/?safe=true";
             var server = MongoServer.Create(connectionString);
             var database = server.GetDatabase("Data");
 
             var collection = database.GetCollection<Animal>("Animals");
             var topicCollecion = database.GetCollection<Topic>("Topics");
+            var universityCollection = database.GetCollection<University>("University");
 
             var query1 = from Topics in topicCollecion.AsQueryable<Topic>()
                          where Topics.name == comboTopic.SelectedItem.ToString()
@@ -86,20 +98,22 @@ namespace MineData
 
             Topic t = query1.First();
 
+
             Animal a = new Animal
             {
                 name = this.textName.Text,
                 date = this.dateTime.Value,
                 properties = tmpProps,
-                topic = new MongoDBRef("Topics", t.Id)
+                topic = new MongoDBRef("Topics", t.Id),
+                //university = new MongoDBRef("University", university.Id)
             };
 
             collection.Insert<Animal>(a);
 
-            t.data.Add(new MongoDBRef("Animals", a.Id));
+            university.generatedData.Add(new MongoDBRef("Animals", a.Id));
 
-            topicCollecion.Save(t);
-
+            //topicCollecion.Save(t);
+            universityCollection.Save(university);
 
             tmpProps.Clear();
             listProp.Items.Clear();
@@ -174,18 +188,17 @@ namespace MineData
 
 
             var query1 = from Topics in topicCollection.AsQueryable<Topic>()
-                         where Topics.name == "insekti"
+                         where Topics.name == comboTopic.SelectedItem.ToString()
                          select Topics;
 
             Topic t = query1.First();
 
-            foreach (MongoDBRef animalRef in t.data)
-            {
-                Animal tmp = database.FetchDBRefAs<Animal>(animalRef);
-                //MessageBox.Show(tmp.name);
-                collection.Remove(Query.EQ("_id", tmp.Id));
-            }
-
+            //foreach (MongoDBRef animalRef in university.generatedData)
+            //{
+            //    Animal tmp = database.FetchDBRefAs<Animal>(animalRef);
+            //    //MessageBox.Show(tmp.name);
+            //    collection.Remove(Query.EQ("_id", tmp.Id));
+            //}
 
             topicCollection.Remove(Query.EQ("_id", t.Id));
         }
@@ -218,7 +231,7 @@ namespace MineData
                 MessageBox.Show("Pick a topic");
                 return;
             }
-            EditForm f = new EditForm(this.comboTopic.SelectedItem.ToString());
+            EditForm f = new EditForm(university.Name);
             f.Show();
         }
     }

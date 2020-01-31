@@ -17,19 +17,22 @@ namespace MineData
 {
     public partial class EditForm : MaterialSkin.Controls.MaterialForm
     {
-        private String topic;
-        private Topic t;
-        private User user;
+        //private String topic;
+        //private Topic t;
+        private string university;
+        private University u;
+
+
         public EditForm()
         {
             InitializeComponent();
         }
 
-        public EditForm(string t)
+        public EditForm(string u)
         {
             InitializeComponent();
-            topic = t;
-
+            //topic = t;
+            university = u;
             showData();
         }
 
@@ -40,31 +43,38 @@ namespace MineData
             var database = server.GetDatabase("Data");
 
             var collection = database.GetCollection<Animal>("Animals");
-            var topicCollection = database.GetCollection<Topic>("Topics");
+            var universityCollection = database.GetCollection<University>("University");
 
-            var query1 = from Topics in topicCollection.AsQueryable<Topic>()
-                         where Topics.name == topic
-                         select Topics;
+            var query1 = from University in universityCollection.AsQueryable<University>()
+                         where University.Name == university
+                         select University;
 
-            t = query1.First();
+            u = query1.First();
+
+
 
             list.Items.Clear();
 
-            foreach (MongoDBRef tmpRef in t.data)
+            foreach (MongoDBRef tmpRef in u.generatedData)
             {
                 Animal tmp = database.FetchDBRefAs<Animal>(tmpRef);
-                list.Items.Add((list.Items.Count + 1) + ". " + tmp.name + ", date: " + tmp.date);
+                Topic t = database.FetchDBRefAs<Topic>(tmp.topic);
+                list.Items.Add((list.Items.Count + 1) + ". " + tmp.name + ", date: " + tmp.date+
+                    "  -  topic:"+t.name);
             }
 
         }
 
         private void list_MouseClick(object sender, MouseEventArgs e)
         {
+            if (list.SelectedItem == null)
+                return;
+
             var connectionString = "mongodb://localhost/?safe=true";
             var server = MongoServer.Create(connectionString);
             var database = server.GetDatabase("Data");
 
-            Animal animal=database.FetchDBRefAs<Animal>(t.data[list.SelectedIndex]);
+            Animal animal=database.FetchDBRefAs<Animal>(u.generatedData[list.SelectedIndex]);
 
             lblName.Text = animal.name;
             lblDate.Text = animal.date.ToShortDateString();
@@ -102,7 +112,7 @@ namespace MineData
             var server = MongoServer.Create(connectionString);
             var database = server.GetDatabase("Data");
 
-            Animal animal = database.FetchDBRefAs<Animal>(t.data[list.SelectedIndex]);
+            Animal animal = database.FetchDBRefAs<Animal>(u.generatedData[list.SelectedIndex]);
 
             lblName.Text = animal.name;
             lblDate.Text = animal.date.ToShortDateString();
@@ -118,7 +128,7 @@ namespace MineData
             var database = server.GetDatabase("Data");
             var collection = database.GetCollection<Animal>("Animals");
 
-            Animal animal = database.FetchDBRefAs<Animal>(t.data[list.SelectedIndex]);
+            Animal animal = database.FetchDBRefAs<Animal>(u.generatedData[list.SelectedIndex]);
 
             if (textName.TextLength > 0)
                 animal.name = textName.Text;
@@ -148,7 +158,7 @@ namespace MineData
             var database = server.GetDatabase("Data");
             var collection = database.GetCollection<Animal>("Animals");
 
-            Animal animal = database.FetchDBRefAs<Animal>(t.data[list.SelectedIndex]);
+            Animal animal = database.FetchDBRefAs<Animal>(u.generatedData[list.SelectedIndex]);
 
             animal.properties.Add(new Property { Name = textPropName.Text, Value = textPropValue.Text });
             collection.Save(animal);
@@ -163,14 +173,14 @@ namespace MineData
             var database = server.GetDatabase("Data");
 
             var collection = database.GetCollection<Animal>("Animals");
-            var topicCollection = database.GetCollection<Topic>("Topics");
+            var UniversityCollection = database.GetCollection<University>("University");
 
-            MongoDBRef animalRef = t.data[list.SelectedIndex];
+            MongoDBRef animalRef = u.generatedData[list.SelectedIndex];
             Animal animal = database.FetchDBRefAs<Animal>(animalRef);
 
 
-            t.data.RemoveAt(list.SelectedIndex);
-            topicCollection.Save(t);
+            u.generatedData.RemoveAt(list.SelectedIndex);
+            UniversityCollection.Save(u);
             collection.Remove(Query.EQ("_id", animal.Id));
             showData();
         }

@@ -57,12 +57,24 @@ namespace MineData
 
 
 
-            list.Items.Clear();
-            foreach(MongoDBRef tmpRef in t.data)
+            //list.Items.Clear();
+
+            List<Animal> lista = new List<Animal>();
+
+            List<IMongoQuery> queries = new List<IMongoQuery>();
+            queries.Add(Query.EQ("topic.$id", t.Id));
+
+            foreach (Animal tmp in collection.Find(Query.And(queries)))
             {
-                Animal tmp = database.FetchDBRefAs<Animal>(tmpRef);
-                list.Items.Add((list.Items.Count + 1) + ". " + tmp.name + ", date: " + tmp.date);
+
+                Topic t = database.FetchDBRefAs<Topic>(tmp.topic);
+                lista.Add(tmp);
             }
+
+            list.DataSource = lista;
+            list.DisplayMember = "name";
+            list.ValueMember = "Id";
+            
 
         }
 
@@ -78,14 +90,17 @@ namespace MineData
 
         private void list_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            if (list.SelectedItem == null)
+                return;
+
             var connectionString = "mongodb://localhost/?safe=true";
             var server = MongoServer.Create(connectionString);
             var database = server.GetDatabase("Data");
 
-            MongoDBRef animalRef = t.data[list.SelectedIndex];
-            Animal animal= database.FetchDBRefAs<Animal>(animalRef);
+            var collection = database.GetCollection<Animal>("Animals");
+            Animal animal = collection.FindOne(Query.EQ("_id", ObjectId.Parse(list.SelectedValue.ToString())));
 
-            String props="";
+            String props ="";
             int brojac = 1;
 
             foreach(Property tmp in animal.properties)
@@ -99,21 +114,7 @@ namespace MineData
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
 
-            var collection = database.GetCollection<Animal>("Animals");
-            var topicCollection = database.GetCollection<Topic>("Topics");
-
-            MongoDBRef animalRef = t.data[list.SelectedIndex];
-            Animal animal = database.FetchDBRefAs<Animal>(animalRef);
-
-
-            t.data.RemoveAt(list.SelectedIndex);
-            topicCollection.Save(t);
-            collection.Remove(Query.EQ("_id", animal.Id));
-            showData();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -163,5 +164,17 @@ namespace MineData
         {
 
         }
+
+        private void list_Format(object sender, ListControlConvertEventArgs e)
+        {
+            String name = ((Animal)e.ListItem).name;
+            String date = ((Animal)e.ListItem).date.ToString();
+
+            e.Value = "   Name: " + name + ", Date: " + date;
+        }
     }
 }
+//var database = server.GetDatabase("Data");
+
+//var collection = database.GetCollection<Animal>("Animals");
+//Animal animal = collection.FindOne(Query.EQ("_id", ObjectId.Parse(list.SelectedValue.ToString())));

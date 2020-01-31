@@ -94,7 +94,7 @@ namespace MineData
                 }
                 else
                 {
-                    Form1 f = new Form1(this);
+                    Form1 f = new Form1(this,u);
                     f.Show();
                     clearText();
                     this.Hide();

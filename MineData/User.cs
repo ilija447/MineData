@@ -14,5 +14,6 @@ namespace MineData
         public string username { get; set; }
         public string password { get; set; }
         public string type { get; set; }
+        public MongoDBRef university { get; set; }
     }
 }

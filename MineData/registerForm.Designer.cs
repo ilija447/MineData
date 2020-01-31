@@ -38,6 +38,8 @@
             this.cbUser = new MaterialSkin.Controls.MaterialCheckBox();
             this.cbScietist = new MaterialSkin.Controls.MaterialCheckBox();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.comboUniversity = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -131,7 +133,7 @@
             // 
             this.btnRegister.Depth = 0;
             this.btnRegister.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnRegister.Location = new System.Drawing.Point(226, 330);
+            this.btnRegister.Location = new System.Drawing.Point(226, 418);
             this.btnRegister.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Primary = true;
@@ -180,7 +182,7 @@
             this.materialFlatButton1.AutoSize = true;
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(27, 335);
+            this.materialFlatButton1.Location = new System.Drawing.Point(27, 428);
             this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
@@ -191,13 +193,40 @@
             this.materialFlatButton1.UseVisualStyleBackColor = true;
             this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(23, 313);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(92, 24);
+            this.materialLabel4.TabIndex = 10;
+            this.materialLabel4.Text = "University";
+            // 
+            // comboUniversity
+            // 
+            this.comboUniversity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboUniversity.Enabled = false;
+            this.comboUniversity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboUniversity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboUniversity.FormattingEnabled = true;
+            this.comboUniversity.Location = new System.Drawing.Point(27, 340);
+            this.comboUniversity.Name = "comboUniversity";
+            this.comboUniversity.Size = new System.Drawing.Size(317, 30);
+            this.comboUniversity.TabIndex = 11;
+            // 
             // registerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(370, 400);
+            this.ClientSize = new System.Drawing.Size(370, 491);
             this.ControlBox = false;
+            this.Controls.Add(this.comboUniversity);
+            this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.cbScietist);
             this.Controls.Add(this.cbUser);
@@ -208,7 +237,6 @@
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.textUsername);
             this.Controls.Add(this.materialLabel1);
-            this.MaximumSize = new System.Drawing.Size(388, 447);
             this.MinimumSize = new System.Drawing.Size(388, 447);
             this.Name = "registerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -230,5 +258,7 @@
         private MaterialSkin.Controls.MaterialCheckBox cbUser;
         private MaterialSkin.Controls.MaterialCheckBox cbScietist;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private System.Windows.Forms.ComboBox comboUniversity;
     }
 }

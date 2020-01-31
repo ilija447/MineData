@@ -120,6 +120,7 @@
     </Compile>
     <Compile Include="StringProperty.cs" />
     <Compile Include="Topic.cs" />
+    <Compile Include="University.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
