@@ -46,6 +46,7 @@
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.textName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnEdit = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
             // dateTime
@@ -70,7 +71,7 @@
             // materialLabel1
             // 
             this.materialLabel1.AutoSize = true;
-            this.materialLabel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.materialLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -84,13 +85,13 @@
             // 
             // materialDivider1
             // 
-            this.materialDivider1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.materialDivider1.Depth = 0;
             this.materialDivider1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.materialDivider1.Location = new System.Drawing.Point(22, 268);
+            this.materialDivider1.Location = new System.Drawing.Point(22, 282);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(511, 110);
+            this.materialDivider1.Size = new System.Drawing.Size(532, 96);
             this.materialDivider1.TabIndex = 21;
             this.materialDivider1.Text = "Properies";
             this.materialDivider1.Click += new System.EventHandler(this.materialDivider1_Click);
@@ -98,7 +99,7 @@
             // materialLabel2
             // 
             this.materialLabel2.AutoSize = true;
-            this.materialLabel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.materialLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -111,20 +112,21 @@
             // 
             // listProp
             // 
-            this.listProp.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.listProp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listProp.BackColor = System.Drawing.Color.White;
+            this.listProp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listProp.Enabled = false;
             this.listProp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listProp.FormattingEnabled = true;
             this.listProp.ItemHeight = 20;
-            this.listProp.Location = new System.Drawing.Point(22, 421);
+            this.listProp.Location = new System.Drawing.Point(22, 432);
             this.listProp.Name = "listProp";
-            this.listProp.Size = new System.Drawing.Size(511, 120);
+            this.listProp.Size = new System.Drawing.Size(532, 182);
             this.listProp.TabIndex = 12;
             this.listProp.SelectedIndexChanged += new System.EventHandler(this.listProp_SelectedIndexChanged);
             // 
             // textPropName
             // 
-            this.textPropName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textPropName.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.textPropName.Depth = 0;
             this.textPropName.Hint = "";
             this.textPropName.Location = new System.Drawing.Point(34, 331);
@@ -140,7 +142,7 @@
             // 
             // textPropValue
             // 
-            this.textPropValue.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textPropValue.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.textPropValue.Depth = 0;
             this.textPropValue.Hint = "";
             this.textPropValue.Location = new System.Drawing.Point(193, 331);
@@ -157,7 +159,7 @@
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(378, 331);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(397, 331);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
@@ -174,7 +176,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(30, 394);
+            this.materialLabel3.Location = new System.Drawing.Point(30, 405);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(97, 24);
@@ -184,7 +186,7 @@
             // materialRaisedButton2
             // 
             this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(693, 461);
+            this.materialRaisedButton2.Location = new System.Drawing.Point(693, 534);
             this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton2.Name = "materialRaisedButton2";
             this.materialRaisedButton2.Primary = true;
@@ -275,7 +277,7 @@
             this.textName.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.textName.Depth = 0;
             this.textName.Hint = "";
-            this.textName.Location = new System.Drawing.Point(34, 228);
+            this.textName.Location = new System.Drawing.Point(34, 227);
             this.textName.MouseState = MaterialSkin.MouseState.HOVER;
             this.textName.Name = "textName";
             this.textName.PasswordChar = '\0';
@@ -300,11 +302,29 @@
             this.materialLabel6.TabIndex = 36;
             this.materialLabel6.Text = "Name";
             // 
+            // btnEdit
+            // 
+            this.btnEdit.AutoSize = true;
+            this.btnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEdit.Depth = 0;
+            this.btnEdit.Location = new System.Drawing.Point(680, 158);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Primary = false;
+            this.btnEdit.Size = new System.Drawing.Size(98, 36);
+            this.btnEdit.TabIndex = 37;
+            this.btnEdit.Text = "Edit Data";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 559);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(800, 633);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.textName);
             this.Controls.Add(this.materialLabel5);
@@ -351,6 +371,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialSingleLineTextField textName;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private MaterialSkin.Controls.MaterialFlatButton btnEdit;
     }
 }
 

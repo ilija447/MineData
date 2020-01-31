@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.UsernameLbl = new MaterialSkin.Controls.MaterialLabel();
             this.TextUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.textPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -229,6 +230,7 @@
             this.Controls.Add(this.TextUsername);
             this.Controls.Add(this.UsernameLbl);
             this.Controls.Add(this.materialDivider1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1180, 750);
             this.MinimizeBox = false;

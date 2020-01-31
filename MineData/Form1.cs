@@ -159,6 +159,12 @@ namespace MineData
 
         private void btnDeleteTopic_Click(object sender, EventArgs e)
         {
+            if (comboTopic.SelectedItem == null)
+            {
+                MessageBox.Show("Pick a topic");
+                return;
+            }
+
             var connectionString = "mongodb://localhost/?safe=true";
             var server = MongoServer.Create(connectionString);
             var database = server.GetDatabase("Data");
@@ -201,8 +207,19 @@ namespace MineData
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if(logForm!=null)
+                logForm.Show();
+        }
 
-            logForm.Show();
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (comboTopic.SelectedItem == null)
+            {
+                MessageBox.Show("Pick a topic");
+                return;
+            }
+            EditForm f = new EditForm(this.comboTopic.SelectedItem.ToString());
+            f.Show();
         }
     }
 }
