@@ -20,7 +20,7 @@ namespace MineData
         private List<Property> tmpProps;
 
         private Form logForm;
-        private User logedUser;
+        private Scientist logedUser;
         private University university;
         public Form1()
         {
@@ -33,7 +33,7 @@ namespace MineData
             getTopics();
         }
 
-        public Form1(Form f, User u)
+        public Form1(Form f, Scientist u)
         {
             InitializeComponent();
 

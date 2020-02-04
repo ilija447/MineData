@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 using MongoDB.Driver;
 using MongoDB.Bson;
+using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 
 namespace MineData
@@ -80,6 +81,16 @@ namespace MineData
             var topicCollecion = database.GetCollection<User>("User");
             var universityCollection = database.GetCollection<University>("University");
 
+            var queryUser = from User in topicCollecion.AsQueryable()
+                        where User.username == textUsername.Text
+                        select User;
+
+            if (queryUser.Count() > 0)
+            {
+                MessageBox.Show("That username already exists");
+                textUsername.Text = "";
+                return;
+            }
 
             User u;
             if (cbScietist.Checked)
@@ -91,11 +102,14 @@ namespace MineData
 
                 University uni = query.First();
 
-                u = new User
+
+
+
+                u = new Scientist
                 {
                     username = textUsername.Text,
                     password = textPass1.Text,
-                    type = "scientist",
+                    //type = "scientist",
                     university = new MongoDBRef("University", uni.Id)
                 };
 
@@ -106,11 +120,11 @@ namespace MineData
                 {
                     username = textUsername.Text,
                     password = textPass1.Text,
-                    type = "user",
+                    //type = "user",
                 };
             }
 
-            topicCollecion.Insert<User>(u);
+            topicCollecion.Insert(u);
 
             //University u1 = new University { Name = "Univerzitet u Nisu" };
             //University u2 = new University { Name = "Univerzitet u Beogradu" };

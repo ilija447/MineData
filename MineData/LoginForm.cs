@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using MongoDB.Driver.Linq;
+using MongoDB.Driver.Builders;
 
 namespace MineData
 {
@@ -68,23 +69,52 @@ namespace MineData
             var server = MongoServer.Create(connectionString);
             var database = server.GetDatabase("Data");
 
-            var topicCollecion = database.GetCollection<User>("User");
+            var userCollecion = database.GetCollection<Scientist>("User");
 
-            var query = from User in topicCollecion.AsQueryable<User>()
-                         where User.username == TextUsername.Text
-                         select User;
+            var query = from User in userCollecion.AsQueryable()
+                        where User.username == TextUsername.Text
+                        select User;
 
-            User u = query.First();
+            //var u=userCollecion.FindOne<>(Query.EQ("username", TextUsername.Text));
+            //MessageBox.Show(query.GetType().ToString());
 
-            if(u.password==textPassword.Text)
+            if (query.Count() == 0)
             {
-                
-                if(u.type=="user")
+                MessageBox.Show("Invalid username/password combination");
+                return;
+            }
+
+            //var u=query.First();
+            //if(query.GetType()==typeof(Scientist))
+            //    var u = query.Cast<>();
+
+
+            if (query.First().GetType() == typeof(Scientist) && query.First().university!=null)
+            {
+                var u = query.First();
+
+                if (u.password == textPassword.Text)
                 {
-                    devTopic.BackColor=Color.FromArgb(150, 255, 255, 255);
+                    Form1 f = new Form1(this, (Scientist)u);
+                    f.Show();
+                    clearText();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username/password combination");
+                    return;
+                }
+            }
+            else
+            {
+                var u = query.First();
+                if (u.password == textPassword.Text)
+                {
+                    devTopic.BackColor = Color.FromArgb(150, 255, 255, 255);
                     lblTopic.Visible = true;
                     btnTopic.Visible = true;
-                    comboTopic.Visible=true;
+                    comboTopic.Visible = true;
                     getTopics();
 
                     logIn.Enabled = false;
@@ -94,23 +124,49 @@ namespace MineData
                 }
                 else
                 {
-                    Form1 f = new Form1(this,u);
-                    f.Show();
-                    clearText();
-                    this.Hide();
-
+                    MessageBox.Show("Invalid username/password combination");
+                    return;
                 }
-                //Form1 f = new Form1(this);
-                //f.Show();
-                //clearText();
-                //this.Hide();
+            }
+                
 
-            }
-            else
-            {
-                MessageBox.Show("Invalid username/password combination");
-                return;
-            }
+
+            //if (u.password==textPassword.Text)
+            //{
+
+            //    if (query.GetType() == typeof(User))
+            //    {
+                    
+            //        devTopic.BackColor=Color.FromArgb(150, 255, 255, 255);
+            //        lblTopic.Visible = true;
+            //        btnTopic.Visible = true;
+            //        comboTopic.Visible=true;
+            //        getTopics();
+
+            //        logIn.Enabled = false;
+            //        Register.Enabled = false;
+            //        textPassword.Enabled = false;
+            //        TextUsername.Enabled = false;
+            //    }
+            //    else
+            //    {
+            //        Form1 f = new Form1(this,(Scientist)u);
+            //        f.Show();
+            //        clearText();
+            //        this.Hide();
+
+            //    }
+            //    //Form1 f = new Form1(this);
+            //    //f.Show();
+            //    //clearText();
+            //    //this.Hide();
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Invalid username/password combination");
+            //    return;
+            //}
 
             
         }

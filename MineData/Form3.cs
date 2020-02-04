@@ -139,19 +139,26 @@ namespace MineData
             if (textCount.TextLength > 0)
                 dataCount = Int32.Parse(textCount.Text);
 
-            if(textNoPops.TextLength>0)
-                queries.Add(Query.Size("properties", 1));
+            if (textNoPops.TextLength > 0)
+                queries.Add(Query.Size("properties", Int32.Parse(textNoPops.Text)));
 
-            if (textPropName.TextLength > 0 && textPropValue.TextLength > 0)
+            if (textName.TextLength > 0)
+                queries.Add(Query.EQ("name", textName.Text));
+
+            if (rbProp.Checked&& textPropName.TextLength > 0 && textPropValue.TextLength > 0)
             {
+
+                //db.collection.find( { {properties : {Name: }} : { $exists: true } } );
                 var jsonQuery = "{ properties : {\"Name\" : \"" + textPropName.Text + "\", \"Value\" : \"" +
                     textPropValue.Text + "\" }}";
-                //var jsonQuery = "{ properties : [ {\"Name\" : \"aa\", \"Value\" : \"12\" }]}";
+
+                
                 BsonDocument doc = MongoDB.Bson.Serialization
                                    .BsonSerializer.Deserialize<BsonDocument>(jsonQuery);
 
-                queries.Add(new QueryComplete(doc));
+                queries.Add(new QueryDocument(doc));
 
+                //queries.Add(Query.Find()};
             }
 
             foreach (Animal a in collection.Find(Query.And(queries)).SetLimit(dataCount))
@@ -172,8 +179,59 @@ namespace MineData
 
             e.Value = "   Name: " + name + ", Date: " + date;
         }
+
+        private void materialRadioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!rbValue.Checked)
+            {
+                lblCount.Visible = false;
+                textCount.Visible = false;
+                lblNoOfProps.Visible = false;
+                textNoPops.Visible = false;
+                lblName.Visible = false;
+                textName.Visible = false;
+
+                lblPropName.Visible = true;
+                textPropName.Visible = true;
+                lblPropValue.Visible = true;
+                textPropValue.Visible = true;
+
+                clearText();
+            }
+        }
+
+        private void rbProp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!rbProp.Checked)
+            {
+                lblCount.Visible = true;
+                textCount.Visible = true;
+                lblNoOfProps.Visible = true;
+                textNoPops.Visible = true;
+                lblName.Visible = true;
+                textName.Visible = true;
+
+                lblPropName.Visible = false;
+                textPropName.Visible = false;
+                lblPropValue.Visible = false;
+                textPropValue.Visible = false;
+
+                clearText();
+            }
+        }
+
+        private void clearText()
+        {
+            textNoPops.Text = "";
+            textCount.Text = "";
+            textName.Text = "";
+            textPropName.Text = "";
+            textPropValue.Text = "";
+        }
     }
 }
+
+
 //var database = server.GetDatabase("Data");
 
 //var collection = database.GetCollection<Animal>("Animals");

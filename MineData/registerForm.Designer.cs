@@ -146,6 +146,8 @@
             // cbUser
             // 
             this.cbUser.AutoSize = true;
+            this.cbUser.Checked = true;
+            this.cbUser.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbUser.Depth = 0;
             this.cbUser.Font = new System.Drawing.Font("Roboto", 10F);
             this.cbUser.Location = new System.Drawing.Point(27, 248);
