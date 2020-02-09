@@ -85,7 +85,7 @@
             this.textPassword.SelectionLength = 0;
             this.textPassword.SelectionStart = 0;
             this.textPassword.Size = new System.Drawing.Size(254, 28);
-            this.textPassword.TabIndex = 3;
+            this.textPassword.TabIndex = 2;
             this.textPassword.UseSystemPasswordChar = false;
             // 
             // materialLabel1
@@ -99,7 +99,7 @@
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(94, 24);
-            this.materialLabel1.TabIndex = 2;
+            this.materialLabel1.TabIndex = 4;
             this.materialLabel1.Text = "Password";
             // 
             // logIn
@@ -110,7 +110,7 @@
             this.logIn.Name = "logIn";
             this.logIn.Primary = true;
             this.logIn.Size = new System.Drawing.Size(97, 45);
-            this.logIn.TabIndex = 4;
+            this.logIn.TabIndex = 3;
             this.logIn.Text = "Log in";
             this.logIn.UseVisualStyleBackColor = true;
             this.logIn.Click += new System.EventHandler(this.logIn_Click);
@@ -135,10 +135,10 @@
             // 
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(420, 106);
+            this.materialDivider1.Location = new System.Drawing.Point(420, 117);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(332, 278);
+            this.materialDivider1.Size = new System.Drawing.Size(332, 267);
             this.materialDivider1.TabIndex = 7;
             this.materialDivider1.Text = "materialDivider1";
             // 
@@ -232,6 +232,7 @@
             this.Controls.Add(this.TextUsername);
             this.Controls.Add(this.UsernameLbl);
             this.Controls.Add(this.materialDivider1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1180, 750);

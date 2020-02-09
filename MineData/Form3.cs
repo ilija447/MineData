@@ -161,10 +161,25 @@ namespace MineData
                 //queries.Add(Query.Find()};
             }
 
+            String text="";
+            int i=1;
             foreach (Animal a in collection.Find(Query.And(queries)).SetLimit(dataCount))
             {
-                MessageBox.Show(a.name);
+                if (text == "")
+                    text += "Topic: " + t.name + System.Environment.NewLine + System.Environment.NewLine;
+
+                text +=i+ ". Name: " + a.name + ", date: " + a.date + "; \n \t Properties: \n";
+                foreach(Property p in a.properties)
+                {
+                    text += "\t \t Name:" + p.Name + ",  Value: " + p.Value + System.Environment.NewLine;
+                }
+                text += System.Environment.NewLine;
+                i++;
             }
+
+            dataView f = new dataView(text);
+            f.Show();
+
         }
 
         private void materialLabel1_Click(object sender, EventArgs e)

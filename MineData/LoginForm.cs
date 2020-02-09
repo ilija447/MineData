@@ -59,6 +59,7 @@ namespace MineData
         }
         private void logIn_Click(object sender, EventArgs e)
         {
+
             if (textPassword.TextLength < 1 || TextUsername.TextLength < 1)
             {
                 MessageBox.Show("Invalid username/password combination");

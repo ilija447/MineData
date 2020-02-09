@@ -58,3 +58,4 @@ D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\bin\Debug\MaterialSkin.dll
 D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\obj\Debug\MineData.LoginForm.resources
 D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\obj\Debug\MineData.registerForm.resources
 D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\obj\Debug\MineData.EditForm.resources
+D:\Knjige\7.semestar\Baze\MineData\MineData\MineData\obj\Debug\MineData.dataView.resources

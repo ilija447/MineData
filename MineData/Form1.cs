@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using MaterialSkin;
+using MaterialSkin.Controls;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using MongoDB.Driver.Linq;
@@ -28,6 +30,10 @@ namespace MineData
 
             tmpProps = new List<Property>();
 
+            //var skinManager = MaterialSkinManager.Instance;
+
+            //skinManager.AddFormToManage(this);
+            //skinManager.Theme = MaterialSkinManager.Themes.DARK;
             
 
             getTopics();
@@ -233,6 +239,11 @@ namespace MineData
             }
             EditForm f = new EditForm(university.Name);
             f.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

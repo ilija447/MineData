@@ -209,13 +209,13 @@
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(554, 290);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(527, 290);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(105, 39);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(132, 39);
             this.materialRaisedButton1.TabIndex = 14;
-            this.materialRaisedButton1.Text = "Export";
+            this.materialRaisedButton1.Text = "View data";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             this.materialRaisedButton1.Click += new System.EventHandler(this.btnExport_Click);
             // 
