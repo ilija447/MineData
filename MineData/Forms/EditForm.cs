@@ -38,9 +38,7 @@ namespace MineData
 
         private void showData()
         {
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
+            MongoDatabase database = MongoService.getDatabase();
 
             var collection = database.GetCollection<Animal>("Animals");
             var universityCollection = database.GetCollection<University>("University");
@@ -70,9 +68,7 @@ namespace MineData
             if (list.SelectedItem == null)
                 return;
 
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
+            MongoDatabase database = MongoService.getDatabase();
 
             Animal animal=database.FetchDBRefAs<Animal>(u.generatedData[list.SelectedIndex]);
 
@@ -108,9 +104,7 @@ namespace MineData
         }
         private void comboProp_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
+            MongoDatabase database = MongoService.getDatabase();
 
             Animal animal = database.FetchDBRefAs<Animal>(u.generatedData[list.SelectedIndex]);
 
@@ -123,9 +117,7 @@ namespace MineData
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
+            MongoDatabase database = MongoService.getDatabase();
             var collection = database.GetCollection<Animal>("Animals");
 
             Animal animal = database.FetchDBRefAs<Animal>(u.generatedData[list.SelectedIndex]);
@@ -153,9 +145,7 @@ namespace MineData
                 MessageBox.Show("Enter property");
                 return;
             }
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
+            MongoDatabase database = MongoService.getDatabase();
             var collection = database.GetCollection<Animal>("Animals");
 
             Animal animal = database.FetchDBRefAs<Animal>(u.generatedData[list.SelectedIndex]);
@@ -168,9 +158,7 @@ namespace MineData
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
+            MongoDatabase database = MongoService.getDatabase();
 
             var collection = database.GetCollection<Animal>("Animals");
             var UniversityCollection = database.GetCollection<University>("University");

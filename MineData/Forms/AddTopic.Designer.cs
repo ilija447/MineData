@@ -35,6 +35,7 @@
             // 
             // textTopicName
             // 
+            this.textTopicName.BackColor = System.Drawing.Color.White;
             this.textTopicName.Depth = 0;
             this.textTopicName.Hint = "";
             this.textTopicName.Location = new System.Drawing.Point(12, 149);

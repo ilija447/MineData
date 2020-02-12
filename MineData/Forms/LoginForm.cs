@@ -45,9 +45,7 @@ namespace MineData
 
         public void getTopics()
         {
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
+            MongoDatabase database = MongoService.getDatabase();
             var topicCollecion = database.GetCollection<Topic>("Topics");
 
 
@@ -66,9 +64,7 @@ namespace MineData
                 return;
             }
 
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
+            MongoDatabase database = MongoService.getDatabase();
 
             var userCollecion = database.GetCollection<Scientist>("User");
 

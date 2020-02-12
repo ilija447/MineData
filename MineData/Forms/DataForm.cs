@@ -33,9 +33,7 @@ namespace MineData
         }
 
         private void showData() {
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
+            MongoDatabase database = MongoService.getDatabase();
 
             var collection = database.GetCollection<Animal>("Animals");
             var topicCollection = database.GetCollection<Topic>("Topics");
@@ -93,9 +91,7 @@ namespace MineData
             if (list.SelectedItem == null)
                 return;
 
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
+            MongoDatabase database = MongoService.getDatabase();
 
             var collection = database.GetCollection<Animal>("Animals");
             Animal animal = collection.FindOne(Query.EQ("_id", ObjectId.Parse(list.SelectedValue.ToString())));
@@ -105,7 +101,8 @@ namespace MineData
 
             foreach(Property tmp in animal.properties)
             {
-                props += brojac+". "+tmp.Name + ":  " + tmp.Value+"  \n";
+                props += " "+brojac+". "+tmp.Name + ":  " + tmp.Value+"   \n";
+                brojac++;
             }
 
             //MessageBox.Show(list.SelectedItem.ToString());
@@ -124,9 +121,7 @@ namespace MineData
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            var connectionString = "mongodb://localhost/?safe=true";
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase("Data");
+            MongoDatabase database = MongoService.getDatabase();
 
             var collection = database.GetCollection<Animal>("Animals");
             var topicCollection = database.GetCollection<Topic>("Topics");
